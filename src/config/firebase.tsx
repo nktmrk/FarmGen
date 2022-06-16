@@ -1,16 +1,26 @@
 import { initializeApp } from "firebase/app";
 import { getStorage } from "firebase/storage";
 import { getFirestore } from "firebase/firestore";
+import {
+  FIREBASE_API_KEY,
+  FIREBASE_AUTH_DOMAIN,
+  FIREBASE_DATABASE_URL,
+  FIREBASE_PROJECT_ID,
+  FIREBASE_STORAGE_BUCKET,
+  FIREBASE_MESSAGE_SENDER_ID,
+  FIREBASE_APP_ID,
+  FIREBASE_MEASUREMENT_ID
+} from "@env";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyANUix0ZLiHCbyAQvfdMz7P2r-ufg9zIBk",
-  authDomain: "farmgeneration-aa373.firebaseapp.com",
-  databaseURL: "https://farmgeneration-aa373-default-rtdb.firebaseio.com",
-  projectId: "farmgeneration-aa373",
-  storageBucket: "farmgeneration-aa373.appspot.com",
-  messagingSenderId: "273415309566",
-  appId: "1:273415309566:web:8815adbe30259c13fd7daf",
-  measurementId: "G-F1E37QPDLY"
+  apiKey: FIREBASE_API_KEY,
+  authDomain: FIREBASE_AUTH_DOMAIN,
+  databaseURL: FIREBASE_DATABASE_URL,
+  projectId: FIREBASE_PROJECT_ID,
+  storageBucket: FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: FIREBASE_MESSAGE_SENDER_ID,
+  appId: FIREBASE_APP_ID,
+  measurementId: FIREBASE_MEASUREMENT_ID
 };
 
 const app = initializeApp(firebaseConfig);
