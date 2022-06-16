@@ -1,3 +1,8 @@
+.env
+.env.development
+.env.production
+.env.test
+package-lock.json
 node_modules/
 .expo/
 dist/
