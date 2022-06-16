@@ -19,6 +19,22 @@ This repo is a demo for FarmGeneration micro app.
   yarn install
 ```
 
+- Create development env file and fill firebase configuration as the interface.
+```bash
+touch .env
+```
+
+```bash
+FIREBASE_API_KEY=<your_api_key>
+FIREBASE_AUTH_DOMAIN=<your_auth_domain>
+FIREBASE_DATABASE_URL=<your_database_url>
+FIREBASE_PROJECT_ID=<your_project_id>
+FIREBASE_STORAGE_BUCKET=<your_storage_bucket>
+FIREBASE_MESSAGE_SENDER_ID=<your_message_sender_id>
+FIREBASE_APP_ID=<your_app_id>
+FIREBASE_MEASUREMENT_ID=<your_measurement_id>
+```
+
 - Run the app
 ```bash
  web - expo web
