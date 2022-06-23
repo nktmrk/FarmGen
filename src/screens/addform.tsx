@@ -6,11 +6,14 @@ import {Button} from 'react-native-paper';
 import {Formik} from 'formik';
 import * as Yup from 'yup';
 import "yup-phone";
+import { getAuth } from 'firebase/auth';
 
 import { firestore } from '../config/firebase';
 import ImagePicker from '../components/image-picker';
 import FormInput from '../components/form-input';
 import { ERROR } from '../styles/colors';
+
+const auth = getAuth();
 
 const AddForm = () => {
   const navigation = useNavigation();
@@ -41,6 +44,7 @@ const AddForm = () => {
         phone: payload.phone,
         open_hours: payload.open_hours,
         url: payload.imgUrl,
+        owner: auth.currentUser?.uid
       });
       console.log("add new doc id:", docRef.id);
       navigation.navigate('Home');

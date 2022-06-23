@@ -5,8 +5,10 @@ import {StyleSheet, TouchableOpacity, Text, View, Platform} from 'react-native';
 import {Button} from 'react-native-paper';
 import { useNavigation } from '@react-navigation/native';
 import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
+import { collection, addDoc } from "firebase/firestore"; 
 
 import FormInput from '../components/form-input';
+import { firestore } from '../config/firebase';
 
 const auth = getAuth();
 
@@ -16,6 +18,12 @@ const Register = () => {
   const handleSubmit = async (payload: any, formik: any) => {
     try {
       await createUserWithEmailAndPassword(auth, payload.email, payload.password);
+
+      const addRes = await addDoc(collection(firestore, 'users'), {
+        name: payload.name,
+        email: payload.email
+      });
+      console.log('add user res:', addRes);
     } catch (error) {
       console.log('error');
     }
@@ -47,6 +55,15 @@ const Register = () => {
           submitForm,
         }) => (
           <View style={styles.loginForm}>
+              <FormInput
+                  valueKey={'name'}
+                  text={'Name'}
+                  required={true}
+                  errors={errors}
+                  values={values}
+                  setValues={setValues}
+                  touched={touched}
+                  setTouched={setTouched} />
               <FormInput
                   valueKey={'email'}
                   text={'Email'}
